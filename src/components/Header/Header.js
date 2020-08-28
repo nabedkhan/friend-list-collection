@@ -16,11 +16,11 @@ const Header = (props) => {
                 <h1 className='text-warning mb-0 text-center'>Friend List Collection</h1>
             </div>
 
-            <div className="col-lg-4 col-md-10">
+            <div className="col-lg-4 col-md-9">
                 <Form.Control type='text' value={props.value} onChange={(e) => props.userSearch(e)} placeholder="Search User" />
             </div>
 
-            <div className='col-lg-4 col-md-2'>
+            <div className='col-lg-4 col-md-3'>
                 <Dropdown className='text-center'>
                     <Dropdown.Toggle variant="warning btn-lg" id="dropdown-basic">
                         <FontAwesomeIcon className='text-light' icon={faUsers} /> <span className="badge badge-light">{users.length}</span>

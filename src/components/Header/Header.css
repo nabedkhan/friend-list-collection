@@ -12,3 +12,10 @@
     outline: 0;
     box-shadow: none
 }
+
+@media (max-width: 767.98px) {
+    .dropdown-toggle {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
