@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Users.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { useRef } from 'react';
 
 const Users = (props) => {
     const { name: { first, last }, email, phone, picture, salary,
@@ -10,6 +11,9 @@ const Users = (props) => {
 
     const [btnText, setBtnText] = useState('Add in List');
     const changeText = (text) => setBtnText(text);
+
+    const btnRef = useRef();
+    const onBtnClick = () => btnRef.current.setAttribute('disabled', 'disabled');
 
     return (
         <div className="col-xl-4 col-lg-6 col-md-6">
@@ -25,9 +29,10 @@ const Users = (props) => {
                             <h6 className="card-text">Email: {email}</h6>
                             <h6 className="card-text">Monthly Salary: ${salary}</h6>
                             <h6 className="card-text">Address: {city}, {state}, {country}</h6>
-                            <button onClick={() => {
+                            <button ref={btnRef} onClick={() => {
                                 props.click(props.users);
-                                changeText('Added')
+                                changeText('Added');
+                                onBtnClick();
                             }} type="button" className="btn btn-warning">
                                 <FontAwesomeIcon icon={faUser} /> {btnText}
                             </button>
